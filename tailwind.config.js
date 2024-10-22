@@ -13,6 +13,9 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
       colors: {},
+      backgroundImage: {
+        "contact": "url('/img/contact-background.jpg')"
+      },
       
       animation: {
         "meteor-effect": "meteor 5s linear infinite",

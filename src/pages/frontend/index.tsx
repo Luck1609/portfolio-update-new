@@ -1,12 +1,18 @@
+import About from "./about";
+import Contact from "./contact";
+import Experience from "./experience";
 import Hero from "./hero";
-import Skills from "./skills";
+import Projects from "./projects";
 
 
 export default function Home() {
   return (
     <div>
       <Hero />
-      <Skills />
+      <Experience />
+      <Projects />
+      <About />
+      <Contact />
     </div>
   )
 }
