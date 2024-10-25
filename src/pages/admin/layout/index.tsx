@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { IconArrowLeft, IconBrandTabler, IconKeyboard, IconSchool, IconSettings, IconUserBolt } from "@tabler/icons-react";
+import { IconArrowLeft, IconBrandTabler, IconKeyboard, IconSchool, IconSettings } from "@tabler/icons-react";
 import { useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui";
 import { Logo, LogoIcon } from "./misc";

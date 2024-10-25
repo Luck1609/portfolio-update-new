@@ -1,5 +1,5 @@
 
-import { Typography, TypographyH4, TypographyH6 } from "@/components/typography";
+import { Typography, TypographyH6 } from "@/components/typography";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useGetQuery } from "@/lib/feature/api";
 import { EducationCardSkeleton } from "./skeleton";

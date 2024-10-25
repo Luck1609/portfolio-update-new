@@ -3,7 +3,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import { DynamicActionButtons } from '@/components/data-table/action-buttons';
 import { Typography } from "@/components/typography";
 import { getAssetURL } from '@/lib/utils';
-import { Experience } from './schema';
+import { Experience } from '.';
 
 const columns = (url: string): ColumnDef<Experience>[] => {
 
@@ -31,11 +31,23 @@ const columns = (url: string): ColumnDef<Experience>[] => {
       enableHiding: false,
     },
     {
-      header: "Image details",
-      cell: (({ row: { original: { image, caption } } }) => <div className="flex items-center space-x-2">
+      header: "Name",
+      cell: (({ row: { original: { image, company } } }) => <div className="flex items-center space-x-2">
         <img src={getAssetURL(`/${JSON.parse(String(image))?.url}`)} alt="" className="w-28 h-20 rounded" />
-        <Typography>{caption}</Typography>
+        <Typography>{company}</Typography>
       </div>)
+    },
+    {
+      accessorKey: "role",
+      header: "Role"
+    },
+    {
+      accessorKey: "startDate",
+      header: "Start date"
+    },
+    {
+      accessorKey: "endDate",
+      header: "End date"
     },
     {
       id: "actions",

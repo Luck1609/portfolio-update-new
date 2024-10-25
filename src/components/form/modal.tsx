@@ -18,7 +18,6 @@ import { HttpMethods } from "@/shared/types";
 
 export type AddButtonProps<Values> = {
   title: string;
-  // description: string;
   className?: string
   button: {
     label: string

@@ -13,12 +13,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { LucidIcon } from "../action-buttons";
+import { TabularIcon } from "@/shared/types";
 
 type DialogItemType = {
   triggerChildren: {
     text: string;
-    Icon: LucidIcon | null
+    Icon: TabularIcon | null;
   };
   onSelect: () => void;
   data: {

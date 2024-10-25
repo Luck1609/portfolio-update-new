@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import DialogItem from "./item";
 
-export default function NestedDialog({ trigger }) {
+export default function NestedDialog({ trigger }: {trigger: React.ReactNode}) {
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [_, setHasOpenDialog] = React.useState(false);
   const dropdownTriggerRef = React.useRef(null);

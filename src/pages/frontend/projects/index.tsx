@@ -1,5 +1,5 @@
 import Container from '@/components/container'
-import { Typography, TypographyH3, TypographyH4, TypographyH5 } from '@/components/typography'
+import { Typography, TypographyH3, TypographyH5 } from '@/components/typography'
 import ProjectSkeleton from './skeleton'
 import { Suspense } from 'react'
 import { useGetQuery } from '@/lib/feature/api'

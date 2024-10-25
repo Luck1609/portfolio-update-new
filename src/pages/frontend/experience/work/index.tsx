@@ -3,7 +3,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import dayjs from "dayjs";
 import { ExperienceSkeleton } from "./skeleton";
 import { Typography, TypographyH4, TypographyH6, TypographyLead } from "@/components/typography";

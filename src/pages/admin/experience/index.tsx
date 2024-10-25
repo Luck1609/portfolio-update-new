@@ -2,13 +2,22 @@ import { DataTable } from '@/components/data-table'
 import columns from './columns'
 import BaseTableHeader from '@/components/data-table/table-header'
 import { useLocation } from 'react-router-dom'
-import type { Experience } from './schema'
 import { TypographyH5 } from '@/components/typography'
 import useUrlQuery from '@/hooks/use-url-query'
 import ExperienceForm, { experienceValidation } from './form'
 
 
-export const initialExperience = {
+export type Experience = {
+  id?: string;
+  company: string;
+  role: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  image: string;
+}
+
+export const initialExperience: Experience = {
   company: "",
   role: "",
   description: "",

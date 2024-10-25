@@ -1,6 +1,4 @@
-import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
-import React from 'react'
 
 export default function ProjectSkeleton() {
   return (

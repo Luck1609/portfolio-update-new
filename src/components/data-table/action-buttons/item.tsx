@@ -12,11 +12,8 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import http from "@/lib/http";
 import { Button } from "@/components/ui/button";
 import { DialogAlert } from "../types";
-import { toast } from "@/hooks/use-toast";
-import { DELETE } from "@/shared/constants";
 import { TabularIcon } from "@/shared/types";
 import { Loading } from "@/components/form/button";
 import { usePostMutation } from "@/lib/feature/api";

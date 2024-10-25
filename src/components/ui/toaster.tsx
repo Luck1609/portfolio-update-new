@@ -11,10 +11,10 @@ import { cn } from "@/lib/utils"
 
 
 const statusColors = {
-  success: '!bg-green-500 !text-green-100',
-  error: '!bg-red-500 !text-red-100',
-  info: '!bg-blue-500 !text-blue-100',
-  warning: '!bg-amber-500 !text-amber-100',
+  success: '!bg-green-500 !text-green-100 border-none',
+  error: '!bg-red-500 !text-red-100 border-none',
+  info: '!bg-blue-500 !text-blue-100 border-none',
+  warning: '!bg-amber-500 !text-amber-100 border-none',
 }
 
 export function Toaster() {
