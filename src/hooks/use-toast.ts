@@ -10,6 +10,7 @@ const TOAST_REMOVE_DELAY = 1000000
 
 type ToasterToast = ToastProps & {
   id: string
+  status: "error" | "success"
   title?: React.ReactNode
   description?: React.ReactNode
   action?: ToastActionElement

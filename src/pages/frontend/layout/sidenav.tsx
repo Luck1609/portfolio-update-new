@@ -5,6 +5,7 @@
  **/
 
 import { cn } from "@/lib/utils";
+import { IconMenu2 } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -15,7 +16,6 @@ import {
 } from "framer-motion";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu } from "lucide-react"
 
 export const Sidenav = ({
   items,
@@ -83,7 +83,7 @@ const FloatingDockMobile = ({
         onClick={() => setOpen(!open)}
         className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-800 flex items-center justify-center"
       >
-        <Menu className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
+        <IconMenu2 className="h-5 w-5 text-neutral-500 dark:text-neutral-400" />
       </button>
     </div>
   );

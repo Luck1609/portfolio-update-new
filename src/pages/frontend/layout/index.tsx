@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import { Sidenav } from './sidenav'
-import { CircleHelp, Home, Keyboard, Mail, MonitorCog } from 'lucide-react'
+import { IconHelp, IconHome, IconKeyboard, IconMail, IconPrompt } from '@tabler/icons-react'
 
 export default function Layout() {
   return (
@@ -10,27 +10,27 @@ export default function Layout() {
           items={[
             {
               href: "#home",
-              icon: <Home />,
+              icon: <IconHome />,
               title: 'Home'
             },
             {
               href: "#about",
-              icon: <CircleHelp />,
+              icon: <IconHelp />,
               title: 'About'
             },
             {
               href: "#skills",
-              icon: <Keyboard />,
+              icon: <IconKeyboard />,
               title: 'Skills'
             },
             {
               href: "#projects",
-              icon: <MonitorCog />,
+              icon: <IconPrompt />,
               title: 'Projects'
             },
             {
               href: "#contact",
-              icon: <Mail />,
+              icon: <IconMail />,
               title: 'Contact'
             },
           ]}

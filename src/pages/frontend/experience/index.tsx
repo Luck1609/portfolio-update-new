@@ -36,14 +36,14 @@ export default function SkillSet() {
           <TypographyH3>Curation of my skills and experience</TypographyH3>
         </div>
 
-        <div className="flex justify-center space-x-4 mt-10">
+        <div className="flex justify-center space-x-2 lg:space-x-4 mt-10">
           {
             navButtons.map(({name, label}) => (
               <Button 
                 size="lg" 
                 variant="outline" 
                 onClick={setView(label)} 
-                className={cn("", currentView === label ? "bg-teal-500 border-teal-500 text-white hover:bg-teal-600 hover:text-white" : "hover:bg-teal-100 hover:border-teal-100")}
+                className={cn("h-12 px-5 lg:h-14 lg:px-10", currentView === label ? "bg-teal-500 border-teal-500 text-white hover:bg-teal-600 hover:text-white" : "hover:bg-teal-100 hover:border-teal-100")}
               >
                 {name}
               </Button>

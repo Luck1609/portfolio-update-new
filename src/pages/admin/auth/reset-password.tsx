@@ -1,5 +1,4 @@
 import FormButton from "@/components/form/button";
-import Input from "@/components/form/input";
 import Password from "@/components/form/password";
 import { TypographyH6 } from "@/components/typography";
 import { FormProvider, useForm } from "react-hook-form";

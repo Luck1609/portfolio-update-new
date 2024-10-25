@@ -3,7 +3,7 @@ import FormButton from "@/components/form/button";
 import Input from "@/components/form/input";
 import Textarea from "@/components/form/textarea";
 import { Typography, TypographyH3, TypographyH6, TypographyLead } from "@/components/typography";
-import { Mail, Phone } from "lucide-react";
+import { IconMail, IconPhone } from "@tabler/icons-react";
 import { FormProvider, useForm } from "react-hook-form";
 
 
@@ -24,7 +24,7 @@ export default function Contact() {
               <Typography>I would love to here from you.</Typography>
             </div>
             <div className="flex items-center gap-5">
-              <Phone />
+              <IconPhone />
 
               <div className="">
                 <a href="tel:+233249149420" className="block">(024) 914 9420</a>
@@ -33,7 +33,7 @@ export default function Contact() {
             </div>
             
             <div className="flex items-center gap-5">
-              <Mail />
+              <IconMail />
 
               <div className="">
                 <a href="mailto:nathanielobeng0+portfolio@gmail.com" className="block">nathanielobeng0@gmail.com</a>

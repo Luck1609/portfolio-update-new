@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/lib/utils";
 import React, { useState, createContext, useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -93,7 +92,7 @@ export const DesktopSidebar = ({
           className
         )}
         animate={{
-          width: animate ? (open ? "300px" : "60px") : "300px",
+          width: animate ? (open ? "200px" : "60px") : "200px",
         }}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
@@ -162,7 +161,6 @@ export const SidebarLink = ({
 }: {
   link: Links;
   className?: string;
-  // props?: LinkProps;
 }) => {
   const { open, animate } = useSidebar();
   return (

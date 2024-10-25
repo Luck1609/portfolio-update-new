@@ -34,7 +34,7 @@ export default function Textarea({
           <FormLabel>{label}</FormLabel>
           <TextareaComponent
             placeholder={placeholder}
-            className={cn("h-12 rounded-none border-x-0 border-t-0 shadow-none", className)}
+            className={cn("h-12 shadow-none", className)}
             onChange={onChange}
             value={value}
             rows={rows}
