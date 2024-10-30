@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { IconPlus } from "@tabler/icons-react";
 import {
   Dialog,
   DialogContent,
@@ -15,12 +14,15 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { usePostMutation } from "@/lib/feature/api";
 import { HttpMethods } from "@/shared/types";
+import { ReactNode } from "react";
 
-export type AddButtonProps<Values> = {
+export type ModalFormProps<Values> = {
   title: string;
   className?: string
   button: {
-    label: string
+    label: ReactNode,
+    className?: string
+    variant?: "link" | "default" | "destructive" | "outline" | "secondary" | "ghost" | null | undefined
   }
   form: {
     validation: any;
@@ -34,7 +36,7 @@ export type AddButtonProps<Values> = {
   }
 }
 
-export default function FormModal<Values>(props: AddButtonProps<Values>) {
+export default function FormModal<Values>(props: ModalFormProps<Values>) {
   const methods = useForm<typeof props.form.validation>({
     defaultValues: props.form.values,
     resolver: zodResolver(props.form.validation),
@@ -46,18 +48,15 @@ export default function FormModal<Values>(props: AddButtonProps<Values>) {
   const submit: SubmitHandler<typeof props.form.validation> = async (formData) => {
     const { url, method, handler } = props.form.submitHandler
     const payload = handler ? handler(formData) : formData
-    const { data, error } = await submitForm({ url, method, payload })
-
-    if (error) console.log("error details here", error)
-    else console.log('Success details here', data)
+    await submitForm({ url, method, payload })
   }
+
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="h-12 space-x-1 px-1.5 lg:px-2">
-          <IconPlus size={18} />
-          <span className="">{props?.button?.label}</span>
+        <Button className={cn("h-8 space-x-1 text-left w-full justify-start px-3", props.button?.className)} variant={props.button.variant ?? "ghost"}>
+          {props?.button?.label}
         </Button>
       </DialogTrigger>
       <DialogContent className={cn("sm:max-w-[425px]", props.className)}>

@@ -54,5 +54,3 @@ export default function Input({
     />
   );
 }
-
-// Muvars Ghana Fullstack Developer

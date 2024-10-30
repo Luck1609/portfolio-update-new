@@ -5,21 +5,22 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+export const Env = import.meta.env
  
 export function getBaseURL(url?: string): string {
 
-  return process.env.NODE_ENV === 'production'
-    ? `${process.env.NEXT_PUBLIC_API}`
-    : `http://localhost:3333/api/v1${url ?? ''}`;
+  return Env.MODE === 'production'
+    ? `${Env.VITE_API}`
+    : `${Env.VITE_DEV_API}/api/v1${url ?? ''}`;
 }
  
  
 export function getAssetURL(url: string = "", assets: boolean = false): string {
-  const prodApiUrl = process.env.NEXT_PUBLIC_API
+  const prodApiUrl = Env.VITE_API
 
-  return process.env.NODE_ENV === 'production' && prodApiUrl
+  return Env.NODE_ENV === 'production' && prodApiUrl
     ? prodApiUrl
     : assets ? 
-      `http://localhost:3333/${url}` 
-      : `http://localhost:3333/${url}`;
+      `${Env.VITE_API}/${url}` 
+      : `${Env.VITE_DEV_API}/${url}`;
 }

@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import SearchComponent, { SearchComponentProps } from "./search-component";
 import StatusFilter, { StatusFilterProps } from "./status-filter";
-import FormModal, { AddButtonProps } from "@/components/form/modal";
+import FormModal, { ModalFormProps } from "@/components/form/modal";
 
 type BaseHeaderProps<D> = {
   statusFilterProps: StatusFilterProps
   searchComponentProps: SearchComponentProps
-  addButtonProps: AddButtonProps<D>
+  addButtonProps: ModalFormProps<D>
 }
 
 export default function BaseTableHeader<D>({

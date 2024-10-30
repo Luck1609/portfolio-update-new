@@ -4,6 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { cn, getAssetURL } from "@/lib/utils";
 import { TooltipButton } from "@/components/tooltip-button";
 import { IconUpload, IconX } from "@tabler/icons-react";
+import { Image } from "@/shared/types";
 
 export default function Renderer({
   img,
@@ -11,7 +12,7 @@ export default function Renderer({
   index,
   dimensions,
 }: {
-  img?: File | string;
+  img?: File | Image;
   index: number;
   name: string;
   dimensions: string;
@@ -82,7 +83,7 @@ export default function Renderer({
       <div className="flex">
         <div className={cn("relative rounded-l-md overflow-hidden mr-4", dimensions)}>
           {img && (
-            <img src={!(img instanceof File) ? `${getAssetURL(`/${JSON.parse(img)?.url}`)}` : URL.createObjectURL(img)} alt="" />
+            <img src={!(img instanceof File) ? `${getAssetURL(`/${img.url}`)}` : URL.createObjectURL(img)} alt="" />
           )}
 
         </div>
@@ -93,28 +94,23 @@ export default function Renderer({
               <div className="flex space-x-2">
                 <label className="">Name:</label>
                 <span>
-                  {typeof img === 'string' ? JSON.parse(img)?.name : img.name}
+                  {img.name}
                 </span>
               </div>
               <div className="flex space-x-2">
                 <label className="">Size:</label>
                 <span>
                   {
-                    typeof img === 'string'
-                      ? JSON.parse(img)?.size
-                      : `${(img.size / (1024 * 1024)).toFixed(2)}mb`
+                    img instanceof File
+                      ? (Number(img.size) / (1024)).toFixed(1) + "Kb"
+                      : img.size
+                    
                   }
-                  
                 </span>
               </div>
               <div className="flex space-x-2">
                 <label className="">Type:</label>
-                <span>
-                  {
-                    typeof img === 'string'
-                      ? JSON.parse(img)?.type
-                      : img.type}
-                </span>
+                <span>{img.type}</span>
               </div>
             </div>
           )

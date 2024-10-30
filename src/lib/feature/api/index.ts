@@ -18,11 +18,12 @@ type ErrBag = ({
   }[];
 })
 
-const axiosBaseQuery = (): BaseQueryFn<
+const axiosBaseQuery = <T>(): BaseQueryFn<
     {
       url: string
       method: keyof HttpMethods
-      payload?: AxiosRequestConfig['data']
+      payload?: T
+      // payload?: AxiosRequestConfig['data']
     },
     unknown,
     unknown
@@ -31,6 +32,11 @@ const axiosBaseQuery = (): BaseQueryFn<
     try {
       const result = await http[method](getBaseURL(url), payload)
 
+      if (result?.data?.message) toast({
+        status: "success",
+        title: "Action successful",
+        description: result.data.message
+      })
       return { data: result.data }
     }
     catch ( axiosError ) {

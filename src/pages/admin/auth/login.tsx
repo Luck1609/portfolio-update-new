@@ -2,10 +2,51 @@ import FormButton from "@/components/form/button";
 import Input from "@/components/form/input";
 import Password from "@/components/form/password";
 import { TypographyH6 } from "@/components/typography";
-import { FormProvider, useForm } from "react-hook-form";
+import { User } from "@/hooks/use-auth";
+import { usePostMutation } from "@/lib/feature/api";
+import { useDispatch } from "@/lib/feature/hooks";
+import { authUser } from "@/lib/feature/reducers/user";
+import { Env } from "@/lib/utils";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FieldValues, FormProvider, SubmitHandler, useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { z } from "zod";
+
+
+const loginSchema = z.object({
+  email: z.string().email().min(5).trim(),
+  password: z.string().trim().min(6)
+})
+
+type AuthData = {
+  user: User,
+  token: string
+}
 
 export default function Login() {
-  const form = useForm()
+  const form = useForm({
+    mode: "all",
+    resolver: zodResolver(loginSchema)
+  })
+  const { handleSubmit } = form;
+  const [submitLogin, {isLoading}] = usePostMutation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+
+  const submit: SubmitHandler<FieldValues> = async (payload) => {
+    const { data, error } = await submitLogin({ url: "/login", method: "post", payload })
+    if (!error) {
+      const { user, token } = data as AuthData
+      localStorage.setItem(Env.VITE_AUTH_TOKEN, token)
+      dispatch(authUser(user))
+      navigate("/experience")
+    }
+  }
+
+
+  // nathanielobeng0@gmail.com
+  // *#FullStackDev_1609#*
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
@@ -17,7 +58,7 @@ export default function Login() {
             </TypographyH6>
 
             <FormProvider {...form}>
-              <form className="space-y-4 md:space-y-6" action="#">
+              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit(submit)}>
                 <Input
                   name="email"
                   placeholder="name@company.com"
@@ -25,8 +66,8 @@ export default function Login() {
                 />
                 
                 <Password
-                  name="email"
-                  label="Email"
+                  name="password"
+                  label="Password"
                 />
                 
                 <div className="flex items-center justify-between">
@@ -40,7 +81,7 @@ export default function Login() {
                   </div>
                   <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                 </div>
-                <FormButton isSubmitting={false} className="w-60 mx-auto">Sign in</FormButton>
+                <FormButton isSubmitting={isLoading} className="w-60 mx-auto">Sign in</FormButton>
               </form>
             </FormProvider>
           </div>

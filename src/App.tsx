@@ -9,6 +9,7 @@ import ResetPassword from './pages/admin/auth/reset-password'
 import AuthLayout from './pages/admin/layout'
 
 import Experience from './pages/admin/experience'
+import AuthCheck from './pages/admin/layout/auth-check'
 
 function App() {
 
@@ -20,13 +21,15 @@ function App() {
             <Route path="/" element={<Home />} />
           </Route>
 
-          <Route path="/auth" element={<Login />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route element={<AuthCheck />}>
+            <Route path="/auth" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
 
-          <Route element={<AuthLayout />}>
-            {/* <Route path="/projects" element={<Projects />} /> */}
-            <Route path="/experience" element={<Experience />} />
+            <Route element={<AuthLayout />}>
+              {/* <Route path="/projects" element={<Projects />} /> */}
+              <Route path="/experience" element={<Experience />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>
