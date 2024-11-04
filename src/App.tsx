@@ -1,15 +1,17 @@
-import { Suspense } from 'react'
+import { Suspense, lazy } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/frontend'
 import Layout from './pages/frontend/layout'
-import Login from './pages/admin/auth/login'
-import ForgotPassword from './pages/admin/auth/forgot-password'
-import ResetPassword from './pages/admin/auth/reset-password'
 // import Projects from './pages/admin/projects'
-import AuthLayout from './pages/admin/layout'
 
-import Experience from './pages/admin/experience'
-import AuthCheck from './pages/admin/layout/auth-check'
+const Home = lazy(() => import('./pages/frontend'))
+const AuthLayout = lazy(() => import('./pages/admin/layout'))
+const Login = lazy(() => import('./pages/admin/auth/login'))
+const ForgotPassword = lazy(() => import('./pages/admin/auth/forgot-password'))
+const ResetPassword = lazy(() => import('./pages/admin/auth/reset-password'))
+const AuthCheck = lazy(() => import('./pages/admin/layout/auth-check'))
+const Experience = lazy(() => import('./pages/admin/experience'))
+const Project = lazy(() => import('./pages/admin/project'))
+const Education = lazy(() => import('./pages/admin/education'))
 
 function App() {
 
@@ -27,8 +29,9 @@ function App() {
             <Route path="/reset-password" element={<ResetPassword />} />
 
             <Route element={<AuthLayout />}>
-              {/* <Route path="/projects" element={<Projects />} /> */}
+              <Route path="/project" element={<Project />} />
               <Route path="/experience" element={<Experience />} />
+              <Route path="/education" element={<Education />} />
             </Route>
           </Route>
         </Routes>

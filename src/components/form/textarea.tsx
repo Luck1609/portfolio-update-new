@@ -38,6 +38,7 @@ export default function Textarea({
             onChange={onChange}
             value={value}
             rows={rows}
+            maxLength={maxLength}
             {...props}
           />
           <FormMessage />

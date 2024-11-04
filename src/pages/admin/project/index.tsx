@@ -3,7 +3,7 @@ import columns from './columns'
 import BaseTableHeader from '@/components/data-table/table-header'
 import { TypographyH5 } from '@/components/typography'
 import useUrlQuery from '@/hooks/use-url-query'
-import ExperienceForm, { experienceValidation } from './form'
+import ProjectForm, { projectValidation } from './form'
 import { useGetQuery } from '@/lib/feature/api'
 import { Image } from '@/shared/types'
 import { IconPlus } from '@tabler/icons-react'
@@ -12,37 +12,34 @@ import { ModalFormProps } from '@/components/form/modal'
 
 
 
-export type Experience = {
+export type Project = {
   id?: string;
-  company: string;
-  role: string;
+  name: string;
   description: string;
-  startDate: string;
-  endDate: string;
   image: Image | string;
   stack: string;
   publishedAt?: Date | null
 }
 
-export default function Experience() {
-  const {data, isLoading} = useGetQuery({url: "/experience", method: "get"})
+export default function Project() {
+  const {data, isLoading} = useGetQuery({url: "/project", method: "get"})
   const { updateQuery } = useUrlQuery()
-  const experiences = data as Experience[]
+  const projects = data as Project[]
   
 
   return (
     <DataTable
       columns={columns}
-      data={experiences ?? []}
+      data={projects ?? []}
       isLoading={isLoading}
       // meta={updateQuery}
       components={{
         header: () => (
           <BaseTableHeader
-            addButtonProps={experienceFormProps}
+            addButtonProps={projectFormProps}
             statusFilterProps={{
               show: false,
-              component: <TypographyH5>Experience Management</TypographyH5>
+              component: <TypographyH5>Project Management</TypographyH5>
             }}
             searchComponentProps={{
               show: true,
@@ -56,35 +53,32 @@ export default function Experience() {
 }
 
 
-export const experienceFormProps: ModalFormProps<Omit<Experience, "image"> & {logo: string}> =  ({
+export const projectFormProps: ModalFormProps<Omit<Project, "image"> & {picture: string}> =  ({
     button: {
       label: <>
         <IconPlus size={18} />
-        <span className="">New Experience</span>
+        <span className="">New Project</span>
       </>,
       className: "h-12 border-none",
       variant: "default"
     },
-    title: "Add New Experience",
+    title: "Add New Project",
     // description: "Add new experince to your profile. Click save when you're done.",
     className: "md:max-w-3xl",
     form: {
-      validation: experienceValidation,
+      validation: projectValidation,
       values: {
-        company: "",
-        role: "",
+        name: "",
         description: "",
-        startDate: "",
-        endDate: "",
-        logo: "",
-        stack: ""
+        picture: "",
+        stack: "",
       },
-      component: <ExperienceForm />,
+      component: <ProjectForm />,
       submitHandler: {
-        url: "/experience",
+        url: "/project",
         method: "post",
-        handler: (data: Omit<Experience, "logo"> & {logo: File}) => {
-          const { logo, stack, ...fields } = data
+        handler: (data: Omit<Project, "logo"> & {picture: File}) => {
+          const { picture, stack, ...fields } = data
           const payload = new FormData();
 
           (Object.entries(fields)).forEach(([key, value]) => {
@@ -96,7 +90,7 @@ export const experienceFormProps: ModalFormProps<Omit<Experience, "image"> & {lo
             payload.append("stack[]", tool.trim())
           });
 
-          payload.append("logo", logo)
+          payload.append("picture", picture)
 
           return payload
         }

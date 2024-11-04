@@ -24,7 +24,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
   components,
-  meta,
+  // meta,
   isLoading = true,
 }: DataTableProps<TData, TValue>) {
 
@@ -33,7 +33,7 @@ export function DataTable<TData, TValue>({
     columns,
     getCoreRowModel: getCoreRowModel(),
     // pageCount: meta?.pageCount,
-    meta,
+    // meta,
     // initialState: {
     //   pagination: {
     //     pageIndex: meta?.page ? meta?.page - 1 : 0,

@@ -1,0 +1,39 @@
+on: 
+  push:
+    branches:
+      - main
+name: 🚀 Deploy website on push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2.3.2
+    
+    - name: Use Node.js 20
+      uses: actions/setup-node@v2-beta
+      with:
+        node-version: '20'
+      
+    - name: 🔨 Build Project
+      run: |
+        npm install
+        npm run build
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ftp.sandstoneconsult.com
+        username: ${{ secrets.user }}
+        password: ${{ secrets.password }}
+        local-dir: ./dist/
+        # exclude: .git*
+        #   - .git*/**
+        #   -  **/.git*/**
+        #   - node_modules/**
+        #   - node_modules/**/*
+        #   - src/**
+        #   - src/**/*
+        #   - public/**

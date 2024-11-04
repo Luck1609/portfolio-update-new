@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { IconArrowLeft, IconBrandTabler, IconKeyboard, IconSchool, IconSettings, IconUser } from "@tabler/icons-react";
+import { IconArrowLeft, IconBrandTabler, IconKeyboard, IconSchool, IconSettings, IconTool, IconUser } from "@tabler/icons-react";
 import { Suspense, useState } from "react";
 import { Sidebar, SidebarBody, SidebarLink } from "./ui";
 import { Logo, LogoIcon } from "./misc";
@@ -12,7 +12,7 @@ import { useSelector } from "@/lib/feature/hooks";
 const links = [
   {
     label: "Projects",
-    href: "/projects",
+    href: "/project",
     icon: (
       <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
     ),
@@ -35,7 +35,7 @@ const links = [
     label: "Skills",
     href: "/skills",
     icon: (
-      <IconSchool className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      <IconTool className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
     ),
   },
   {
@@ -58,8 +58,6 @@ export default function AuthLayout() {
   useAuth()
   const { user } = useSelector(state => state.user)
   const [open, setOpen] = useState(false);
-
-  console.log('Auth user info', user)
   
   return (
     <Suspense fallback={<>loading Auth component</>}>

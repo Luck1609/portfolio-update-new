@@ -2,10 +2,10 @@ import axios, { AxiosRequestConfig } from "axios";
 import { Env, getBaseURL } from "./utils";
 
 export interface HttpMethods {
-  post: (url: string, payload: object, options?: object) => Promise<any>;
-  patch: (url: string, payload: object, options?: object) => Promise<any>;
-  get: (url: string, options?: object) => Promise<any>;
-  delete: (url: string) => Promise<any>;
+  post: (url: string, payload: object, options?: object) => Promise<unknown>;
+  patch: (url: string, payload: object, options?: object) => Promise<unknown>;
+  get: (url: string, options?: object) => Promise<unknown>;
+  delete: (url: string) => Promise<unknown>;
 }
 
 
@@ -52,10 +52,10 @@ class HttpReq implements HttpMethods {
   }
 
 
-  post = async (url: string, payload: any, options?: AxiosRequestConfig) =>
+  post = async (url: string, payload: unknown, options?: AxiosRequestConfig) =>
     await this.http.post(url, payload, options);
 
-  patch = async (url: string, payload: any, options?: AxiosRequestConfig) =>
+  patch = async (url: string, payload: unknown, options?: AxiosRequestConfig) =>
     await this.http.patch(url, payload, options);
 
   get = async (url: string, options?: AxiosRequestConfig) =>

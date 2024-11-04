@@ -25,7 +25,7 @@ export default function useAuth() {
       }
       dispatch(userLoading(false))
     }
-  }, [user, data])
+  }, [user, data, dispatch])
   
   return
 }

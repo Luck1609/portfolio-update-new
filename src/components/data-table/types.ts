@@ -1,11 +1,11 @@
 
-import { PaginationMeta } from "@/hooks/use-pagination";
+// import { PaginationMeta } from "@/hooks/use-pagination";
 import { ColumnDef, Table } from "@tanstack/react-table";
 import { ReactNode } from "react";
 
 export interface DataTablePaginationProps<TData> {
   table: Table<TData>
-  meta?: PaginationMeta
+  // meta?: PaginationMeta
 }
 
 
@@ -15,7 +15,7 @@ export interface DataTableProps<TData, TValue> {
   components?: {
     header: (table: Table<TData>) => ReactNode
   }
-  meta?: PaginationMeta
+  // meta?: PaginationMeta
   isLoading?: boolean
 }
 

@@ -18,12 +18,12 @@ type ErrBag = ({
   }[];
 })
 
-const axiosBaseQuery = <T>(): BaseQueryFn<
+const axiosBaseQuery = (): BaseQueryFn<
     {
       url: string
       method: keyof HttpMethods
-      payload?: T
-      // payload?: AxiosRequestConfig['data']
+      // payload?: T
+      payload?: AxiosRequestConfig['data']
     },
     unknown,
     unknown
