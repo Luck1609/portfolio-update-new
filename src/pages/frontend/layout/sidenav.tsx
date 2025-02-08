@@ -15,7 +15,6 @@ import {
   useTransform,
 } from "framer-motion";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
 
 export const Sidenav = ({
   items,
@@ -25,7 +24,8 @@ export const Sidenav = ({
   items: { title: string; icon: React.ReactNode; href: string }[];
   desktopClassName?: string;
   mobileClassName?: string;
-}) => {
+  }) => {
+  
   return (
     <>
       <FloatingDockDesktop items={items} className={desktopClassName} />
@@ -36,12 +36,13 @@ export const Sidenav = ({
 
 const FloatingDockMobile = ({
   items,
-  className,
+  className
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
 }) => {
   const [open, setOpen] = useState(false);
+
   return (
     <div className={cn("relative block md:hidden", className)}>
       <AnimatePresence>
@@ -67,13 +68,13 @@ const FloatingDockMobile = ({
                 }}
                 transition={{ delay: (items.length - 1 - idx) * 0.05 }}
               >
-                <Link
-                  to={item.href}
+                <a
+                  href={item.href}
                   key={item.title}
                   className="h-10 w-10 rounded-full bg-gray-50 dark:bg-neutral-900 flex items-center justify-center"
                 >
                   <div className="h-4 w-4">{item.icon}</div>
-                </Link>
+                </a>
               </motion.div>
             ))}
           </motion.div>
@@ -91,7 +92,7 @@ const FloatingDockMobile = ({
 
 const FloatingDockDesktop = ({
   items,
-  className,
+  className
 }: {
   items: { title: string; icon: React.ReactNode; href: string }[];
   className?: string;
@@ -166,8 +167,9 @@ function IconContainer({
 
   const [hovered, setHovered] = useState(false);
 
+
   return (
-    <Link to={href}>
+    <a href={href}>
       <motion.div
         ref={ref}
         style={{ width, height }}
@@ -194,6 +196,6 @@ function IconContainer({
           {icon}
         </motion.div>
       </motion.div>
-    </Link>
+    </a>
   );
 }

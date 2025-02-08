@@ -5,17 +5,18 @@ import ResumeDownloadButton from "@/components/resume-download-button";
 import { IconAward } from "@tabler/icons-react";
 
 
+
 export default function Hero() {
+  
+
   return (
-    <div className="py-5 lg:py-10 mb-10 lg:mb-0">
+    <div className="py-5 lg:py-10 mb-10 lg:mb-0" id="home">
       <Container className="flex flex-col lg:flex-row justify-center items-center px-3 py-5 relative lg:h-[580px] bg-white rounded-xl space-y-10">
         <div className="w-full lg:w-4/6 lg:pl-10">
           <TypographyH1 className="!leading-snug">
             Hello there! Nathaniel here. I am <span className="text-teal-500">Fullstack</span> Developer
           </TypographyH1>
-          {/* <TypographyH1 className="!leading-snug">
-            Hello there! I am Nathaniel, a <FlipWords words={['Frontend', 'Backend', 'Fullstack']} className="text-teal-500" /> Developer
-          </TypographyH1> */}
+          
           <div className="w-full lg:w-4/5">
             <Typography className="text-justify">
               With over 3+ years of experience, primarily in freelance and

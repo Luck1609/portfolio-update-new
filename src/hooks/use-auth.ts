@@ -12,7 +12,7 @@ export type User = {
 
 export default function useAuth() {
   const { user } = useSelector(state => state.user)
-  const { data } = useGetQuery({ url: "/me", method: "get" })
+  const { data } = useGetQuery({ url: "/api/me", method: "get" })
   
   const dispatch = useDispatch()
 

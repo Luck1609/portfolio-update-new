@@ -11,7 +11,7 @@ export default function Contact() {
   const form = useForm()
 
   return (
-    <div className="w-full bg-contact bg-cover py-20">
+    <div className="w-full bg-contact bg-cover py-20" id="contact">
       <Container className="">
         <div className="w-2/5 text-center text-white mx-auto mb-12">
           <TypographyH3>Get in touch</TypographyH3>
@@ -21,7 +21,7 @@ export default function Contact() {
           <div className="w-full p-5 bg-teal-500 rounded-xl text-white space-y-8">
             <div className="">
               <TypographyH6>Contact Information</TypographyH6>
-              <Typography>I would love to here from you.</Typography>
+              <Typography>I would love to hear from you.</Typography>
             </div>
             <div className="flex items-center gap-5">
               <IconPhone />
@@ -67,6 +67,7 @@ export default function Contact() {
                   name="message"
                   label="Message"
                   placeholder="Type in your message"
+                  rows={5}
                 />
               </div>
 

@@ -11,7 +11,7 @@ export function getBaseURL(url?: string): string {
 
   return Env.MODE === 'production'
     ? `${Env.VITE_API}`
-    : `${Env.VITE_DEV_API}/api/v1${url ?? ''}`;
+    : `${Env.VITE_DEV_API}${url ?? ''}`;
 }
  
  

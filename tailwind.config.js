@@ -14,7 +14,8 @@ export default {
   		},
       colors: {},
       backgroundImage: {
-        "contact": "url('/img/contact-background.jpg')"
+        "contact": "url('/img/contact-background.jpg')",
+        "about": "url('/img/about.jpg')",
       },
       
       animation: {
