@@ -15,11 +15,11 @@ export const EducationCardSkeleton = () => {
             <Skeleton className="w-3/5 h-7" />
           </div>
 
-          <div className="mt-5 space-y-1">
+          {/* <div className="mt-5 space-y-1">
             <Skeleton className="w-full h-5" />
             <Skeleton className="w-full h-5" />
             <Skeleton className="w-3/5 h-5" />
-          </div>
+          </div> */}
         </div>
       </div>
 

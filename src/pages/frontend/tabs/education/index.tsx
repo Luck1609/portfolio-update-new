@@ -69,9 +69,9 @@ export default function Education() {
                   </div>
                 </div>
 
-                <div className="mt-5 space-y-1">
+                {/* <div className="mt-5 space-y-1">
                   <Typography>{history.description}</Typography>
-                </div>
+                </div> */}
               </div>
             </div>
 
