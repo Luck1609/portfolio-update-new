@@ -1,17 +1,12 @@
-import { useGetQuery } from "@/lib/feature/api";
 import About from "./about";
 import Contact from "./contact";
 import Hero from "./hero";
-import Projects, { Project } from "./projects";
+import Projects from "./projects";
 import Tabs from "./tabs";
-import { Skill } from "./tabs/skills";
-import { Experience } from "./tabs/work";
-import { Education } from "./tabs/education";
 import { IconHelp, IconHome, IconKeyboard, IconMail, IconPrompt } from '@tabler/icons-react'
 import { Sidenav } from "./layout/sidenav";
 import { Survey } from "./survey";
 
-type Props = { skills: Skill[], experience: Experience[], education: Education[], projects: Project[] }
 
 export default function Home() {
   // const { data, isLoading } = useGetQuery({ url: "/api", method: "get" })

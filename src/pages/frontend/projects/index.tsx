@@ -1,9 +1,7 @@
 import { Suspense } from 'react'
 import Container from '@/components/container'
 import { Typography, TypographyH3, TypographyH5 } from '@/components/typography'
-import ProjectSkeleton from './skeleton'
 import { Badge } from '@/components/ui/badge'
-import { Skeleton } from '@/components/ui/skeleton'
 import { Children } from '@/vite-env'
 import { projects } from './data'
 

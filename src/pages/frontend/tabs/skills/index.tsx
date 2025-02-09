@@ -2,7 +2,6 @@ import { Typography, TypographyH6 } from '@/components/typography'
 import { cn } from '@/lib/utils'
 import { Children } from '@/vite-env'
 import { skills } from './data'
-import { Fragment } from 'react/jsx-runtime'
 
 
 export type Skill = { name: string, image: string }

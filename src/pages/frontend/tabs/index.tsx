@@ -3,9 +3,9 @@ import { TypographyH3, TypographyH6 } from '@/components/typography'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { useState } from 'react'
-import Skills, { Skill } from './skills'
-import Education, { type Education as EducationType  } from './education'
-import WorkHistory, { Experience } from './work'
+import Skills from './skills'
+import Education from './education'
+import WorkHistory from './work'
 
 
 export type View = 'experience' | 'education' | 'skills'
