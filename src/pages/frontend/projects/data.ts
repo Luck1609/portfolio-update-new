@@ -6,9 +6,9 @@ import paradise from "@/assets/img/projects/paradise.jpg"
 export const projects = [
   {
     name: "Virtual City Mall",
-    url: "https://paradise-international.netlify.app",
+    url: "https://vc-mall.netlify.app",
     description: "",
-    stack: JSON.stringify(["React", "Tailwind CSS", "Shadcn UI"]),
+    stack: JSON.stringify(["React", "Tailwind CSS", "Shadcn UI", "Redux toolkit"]),
     image: iai
   },
   {

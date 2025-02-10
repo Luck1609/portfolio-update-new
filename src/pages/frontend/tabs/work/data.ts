@@ -9,7 +9,7 @@ export const work = [
     city: "Kumasi",
     country: "Ghana",
     startDate: new Date("2023-04-04"),
-    endDate: new Date(),
+    endDate: null,
     logo: grsc,
     description: "Description goes here",
     stack: JSON.stringify(['React', 'Redux', 'Tailwind CSS', 'Node JS', 'Laravel', 'MySQL'])

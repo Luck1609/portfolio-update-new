@@ -48,7 +48,7 @@ export default function WorkHistory() {
     <Wrapper>
       {
         work.map((item, index: number) => {
-          const interval = intervalToDuration({start: item.startDate, end: item.endDate})
+          const interval = intervalToDuration({start: item.startDate, end: item.endDate ?? new Date()})
           console.log("Interval duration", interval)
           return (
           <div key={index} className="w-full flex justify-start pt-6 md:gap-7">
@@ -63,7 +63,7 @@ export default function WorkHistory() {
                   </TypographyH4>
                   
                 <Typography className="text-slate-500">
-                  {`${interval.years} years, ${interval.months} months`}
+                    {`${interval.years} year${interval.years! > 1 ? "s" : ""}, ${interval.months} month${interval.months! > 1 ? "s" : ""}`}
                 </Typography>
               </div>
             </div>
