@@ -26,7 +26,7 @@ export default function Login() {
                   name="passwordConfirmation"
                   label="Password"
                 />
-                <FormButton isSubmitting={false} className="w-60 mx-auto">Reset password</FormButton>
+                <FormButton className="w-60 mx-auto">Reset password</FormButton>
               </form>
             </FormProvider>
           </div>

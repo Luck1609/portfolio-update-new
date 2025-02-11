@@ -29,7 +29,7 @@ export default function Login() {
     resolver: zodResolver(loginSchema)
   })
   const { handleSubmit } = form;
-  const [submitLogin, {isLoading}] = usePostMutation()
+  const [submitLogin] = usePostMutation()
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
@@ -81,7 +81,7 @@ export default function Login() {
                   </div>
                   <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
                 </div>
-                <FormButton isSubmitting={isLoading} className="w-60 mx-auto">Sign in</FormButton>
+                <FormButton className="w-60 mx-auto">Sign in</FormButton>
               </form>
             </FormProvider>
           </div>

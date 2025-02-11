@@ -22,7 +22,7 @@ export default function Login() {
                   placeholder="name@company.com"
                   label="Email"
                 />
-                <FormButton isSubmitting={false} className="w-60 mx-auto">Request reset link</FormButton>
+                <FormButton className="w-60 mx-auto">Request reset link</FormButton>
               </form>
             </FormProvider>
           </div>

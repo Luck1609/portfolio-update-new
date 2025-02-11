@@ -43,7 +43,7 @@ export default function FormModal<Values>(props: ModalFormProps<Values>) {
     mode: "all"
   })
   const { handleSubmit } = methods
-  const [submitForm, { isLoading }] = usePostMutation()
+  const [submitForm] = usePostMutation()
 
   const submit: SubmitHandler<typeof props.form.validation> = async (formData) => {
     const { url, method, handler } = props.form.submitHandler
@@ -73,7 +73,7 @@ export default function FormModal<Values>(props: ModalFormProps<Values>) {
             </ScrollArea>
 
             <DialogFooter>
-              <FormButton isSubmitting={isLoading} className="w-36">Save changes</FormButton>
+              <FormButton className="w-36">Save changes</FormButton>
             </DialogFooter>
           </form>
         </FormProvider>

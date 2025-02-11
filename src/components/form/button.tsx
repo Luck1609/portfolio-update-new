@@ -5,15 +5,13 @@ import { useFormContext } from "react-hook-form";
 export default function FormButton({
   children,
   loadingText = "",
-  className = "",
-  isSubmitting = true
+  className = ""
 }: {
   children: ReactNode;
   loadingText?: string;
   className?: string;
-  isSubmitting?: boolean
 }) {
-  const { formState: { isValid, isDirty } } = useFormContext();
+  const { formState: { isValid, isDirty, isSubmitting } } = useFormContext();
 
   return (
     <button

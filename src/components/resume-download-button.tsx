@@ -1,4 +1,4 @@
-import resume from "@/assets/docs/nathaniel-obeng's-resume.pdf"
+import resume from "@/assets/docs/resume-nathaniel-obeng.pdf"
 import { DownloadIcon } from "@radix-ui/react-icons"
 
 export default function ResumeDownloadButton() {

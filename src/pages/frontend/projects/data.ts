@@ -7,14 +7,14 @@ export const projects = [
   {
     name: "Virtual City Mall",
     url: "https://vc-mall.netlify.app",
-    description: "",
+    description: "VC mall is an e-commerce project I basically did for my portfolio. It is still on-going, hoping to make it a fullstack application",
     stack: JSON.stringify(["React", "Tailwind CSS", "Shadcn UI", "Redux toolkit"]),
     image: iai
   },
   {
     name: "I Am Investible",
     url: "https://iai-frontend.netlify.app",
-    description: "A simple website to receive applications for startup funding",
+    description: "This website was built for a client to receive and manage applications for startup funding.",
     stack: JSON.stringify(["React", "Tailwind CSS", "Material UI"]),
     image: iai
   },
@@ -28,7 +28,7 @@ export const projects = [
   {
     name: "French tutor",
     url: "https://french-tutor.netlify.app",
-    description: "",
+    description: "A landing page I built for a one of the products while I was at ReachAfrika, aimed a redireting customers to download the app",
     stack: JSON.stringify(["React", "Tailwind CSS", "Material UI"]),
     image: frenchTutor
   },

@@ -3,15 +3,39 @@ import FormButton from "@/components/form/button";
 import Input from "@/components/form/input";
 import Textarea from "@/components/form/textarea";
 import { Typography, TypographyH3, TypographyH6, TypographyLead } from "@/components/typography";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { IconMail, IconPhone } from "@tabler/icons-react";
 import { FormProvider, useForm } from "react-hook-form";
+import { z } from "zod";
 
+
+const ContactValidationSchema = z.object({
+  name: z.string().nonempty(),
+  email: z.string().email().nonempty(),
+  subject: z.string().nonempty(),
+  message: z.string().nonempty(),
+  token: z.optional(z.string())
+})
 
 export default function Contact() {
-  const form = useForm()
+  const form = useForm({
+    mode: "all",
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+      token: ""
+    },
+    resolver: zodResolver(ContactValidationSchema)
+  })
+
+  const handleSubmit = (_: z.infer<typeof ContactValidationSchema>) => {
+
+  }
 
   return (
-    <div className="w-full bg-contact bg-cover py-20" id="contact">
+    <footer className="w-full bg-contact bg-cover py-20" id="contact">
       <Container className="">
         <div className="w-2/5 text-center text-white mx-auto mb-12">
           <TypographyH3>Get in touch</TypographyH3>
@@ -42,7 +66,7 @@ export default function Contact() {
           </div>
 
           <FormProvider {...form}>
-            <form className="w-full lg:col-span-2 gap-5 grid lg:grid-cols-2 py-8 pl-8">
+            <form className="w-full lg:col-span-2 gap-5 grid lg:grid-cols-2 py-8 pl-8" onSubmit={form.handleSubmit(handleSubmit)}>
               <Input
                 name="name"
                 label="Name"
@@ -72,12 +96,12 @@ export default function Contact() {
               </div>
 
               <div className="lg:col-span-2 flex justify-center">
-                <FormButton isSubmitting={false} className="w-3/5 bg-teal-500">Submit</FormButton>
+                <FormButton className="w-3/5 bg-teal-500">Submit</FormButton>
               </div>
             </form>
           </FormProvider>
         </div>
       </Container>
-    </div>
+    </footer>
   )
 }

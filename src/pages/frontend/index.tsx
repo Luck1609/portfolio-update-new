@@ -5,7 +5,7 @@ import Projects from "./projects";
 import Tabs from "./tabs";
 import { IconHelp, IconHome, IconKeyboard, IconMail, IconPrompt } from '@tabler/icons-react'
 import { Sidenav } from "./layout/sidenav";
-import { Survey } from "./survey";
+// import { Survey } from "./survey";
 
 
 export default function Home() {
@@ -37,7 +37,7 @@ export default function Home() {
         <Contact />
       </div>
 
-      <Survey />
+      {/* <Survey /> */}
 
       <div className="w-full fixed bottom-5 flex items-center z-40">
         <Sidenav
